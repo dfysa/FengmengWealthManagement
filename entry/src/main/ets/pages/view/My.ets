@@ -1,0 +1,82 @@
+import TitleComponent from '../../view/component/TitleComponent'
+import router from '@ohos.router'
+
+@Component
+export struct My{
+  logout(){
+    router.pushUrl({
+      url:'pages/Login'
+    })
+  }
+
+  build() {
+    Column(){
+      TitleComponent({
+        title:'个人资料'
+      })
+    Column(){
+        Column(){
+          Image($r('app.media.avatar_icon'))
+            .width(100)
+            .height(100)
+            .position({y:-50,x:77})
+          Text('拾影人')
+            .fontSize(19)
+            .margin({top:65})
+          Text('120@qq.com')
+            .fontSize(13)
+            .fontColor('#002884')
+        }
+        .margin({top:80})
+        .width(254)
+        .height(110)
+        .borderRadius(20)
+        .backgroundColor(Color.White)
+
+
+      Flex({alignItems:ItemAlign.Center,justifyContent:FlexAlign.SpaceBetween}){
+        Image($r('app.media.edit_icon'))
+          .width(24)
+          .height(24)
+        Text('编辑个人信息')
+          .fontColor('#002884')
+        Image($r('app.media.right_icon'))
+          .width(24)
+          .height(24)
+      }
+      .backgroundColor(Color.White)
+      .padding(10)
+      .borderRadius(10)
+      .margin({top:32})
+
+      Flex({alignItems:ItemAlign.Center,justifyContent:FlexAlign.SpaceBetween}){
+        Image($r('app.media.qrcode_icon_external'))
+          .width(24)
+          .height(24)
+        Text('个人二维码')
+          .fontColor('#002884')
+        Image($r('app.media.right_icon'))
+          .width(24)
+          .height(24)
+      }
+      .backgroundColor(Color.White)
+      .padding(10)
+      .borderRadius(10)
+      .margin({top:32})
+
+    }
+
+    Button('退出登录')
+      .margin({top:120})
+      .width(120)
+      .backgroundColor('#7AE4ED')
+      .onClick(()=>{
+        this.logout()
+      })
+    }
+
+    .padding({left:20,right:20})
+    .height('100%')
+
+  }
+}
