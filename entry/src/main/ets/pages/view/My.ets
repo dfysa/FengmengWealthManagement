@@ -44,6 +44,11 @@ export struct My{
           .width(24)
           .height(24)
       }
+      .onClick(()=>{
+        router.pushUrl({
+          url:'pages/Info/Main'
+        })
+      })
       .backgroundColor(Color.White)
       .padding(10)
       .borderRadius(10)
@@ -63,6 +68,11 @@ export struct My{
       .padding(10)
       .borderRadius(10)
       .margin({top:32})
+      .onClick(()=>{
+        router.pushUrl({
+          url:'pages/Info/QrcodePage'
+        })
+      })
 
     }
 
@@ -76,6 +86,7 @@ export struct My{
     }
 
     .padding({left:20,right:20})
+
     .height('100%')
 
   }

@@ -3,6 +3,9 @@
     "pages/Index",
     "pages/Login",
     "pages/MainPage/MainPage",
-    "pages/Bank/Add"
+    "pages/Bank/Add",
+    "pages/Info/Main",
+    "pages/Info/QrcodePage",
+    "pages/Pay/PayMain"
   ]
 }

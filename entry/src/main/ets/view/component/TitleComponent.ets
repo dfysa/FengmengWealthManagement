@@ -25,7 +25,7 @@ export default struct TitleComponent  {
         .width(44)
         .height(44)
     }
-    .padding({right :20,left:20,top:12,bottom:12})
+    .padding({ top:12,bottom:12})
   }
 
 }

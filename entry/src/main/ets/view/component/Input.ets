@@ -34,7 +34,9 @@ export default struct Input{
               this.isFocus=false
             })
             .placeholderColor('rgba(0,40,132,0.6)')
-            .backgroundColor(Color.White)
+
+            .backgroundColor('#FBFBFD')
+            .style(TextInputStyle.Inline)
             .width('100%')
             .type(this.inputType)
       }

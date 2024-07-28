@@ -1,5 +1,6 @@
 import { BankCard } from '../../view/component/BankCard'
 import TitleComponent from '../../view/component/TitleComponent'
+import router from '@ohos.router'
 
 @Component
 export struct Home{
@@ -57,6 +58,11 @@ arr=[1,2,3,4]
               .margin({top:10})
 
           }
+          .onClick(()=>{
+            router.pushUrl({
+              url:'pages/Pay/PayMain'
+            })
+          })
 
         }
 

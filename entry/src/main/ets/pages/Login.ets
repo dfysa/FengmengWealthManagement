@@ -3,6 +3,11 @@ import Input from '../view/component/Input'
 import { TextReaderIcon } from '@hms.ai.textReader';
 import { faceDetector } from '@kit.CoreVisionKit';
 import  router  from '@ohos.router';
+import { EmailAuthProvider, VerifyCodeAction, VerifyCodeSettingBuilder, PhoneUserBuilder,
+  PhoneAuthProvider, AGConnectAuth, AGConnectAuthCredentialProvider
+} from "@hw-agconnect/auth-ohos"
+
+import agconnect from '@hw-agconnect/api-ohos'
 
 @Entry
 @Component
@@ -11,6 +16,8 @@ struct Login {
 
   @State countDown:number=60
 
+  @State email:string=''
+
    timer:number=0
 
   /*
@@ -18,6 +25,21 @@ struct Login {
    * */
   sendCode(){
     this.startCountDown()
+    // 发送邮箱验证码
+    const verifyCodeSettings= new VerifyCodeSettingBuilder()
+      .setAction(VerifyCodeAction.REGISTER_LOGIN) // 验证码类型 注册或者登录
+      .setLang('zh_CN')
+      .setSendInterval(60)
+      .build()
+
+    /**
+     * 接收两个参数
+     * 另一个参数发送右键的url地址
+     * 当前的配置
+     **/
+    agconnect.auth().requestEmailVerifyCode(this.email,verifyCodeSettings)
+
+
   }
   /**
    * 开始倒计时
